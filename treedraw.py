@@ -21,7 +21,7 @@ Junger, Sebastian Leipert"
 
 __all__ = ["Tree", "Node"]
 
-__version__ = "1.2"
+__version__ = "1.3"
 
 import math
 
@@ -262,7 +262,8 @@ class Node:
     return i
     
   def position(self,origin=(0,0),scalex=1.0,scaley=None):
-    """ Examples:
+    """ Return position as integer
+     Examples:
      position(origin)
      position(origin, 10)
      position(origin, 10, 15)
@@ -270,10 +271,27 @@ class Node:
     if scaley is None:
       if hasattr(scalex, "__getitem__"):
         scalex = scalex[0]
-        scaley = scaley[0]
+        scaley = scalex[1]
       else:
         scaley = scalex
     return (origin[0]+int(math.ceil(self.layout.x()*scalex)),origin[1]+int(math.ceil(self.layout.y()*scaley)))
+
+  def positionf(self,origin=(0.0,0.0),scalex=1.0,scaley=None):
+    """ Return position as floating point
+     Examples:
+     position(origin)
+     position(origin, 10)
+     position(origin, 10, 15)
+     position(origin, (10,15))"""
+    if scaley is None:
+      if hasattr(scalex, "__getitem__"):
+        scalex = scalex[0]
+        scaley = scalex[1]
+      else:
+        scaley = scalex
+    return (origin[0]+(self.layout.x()*scalex),origin[1]+(self.layout.y()*scaley))
+
+
   
   def number(self):
     if self.layout.number != -1:
@@ -290,13 +308,9 @@ class Node:
       raise Exception("Error in number(self)!")
     
 if __name__ == '__main__': 
-  # Small test with pygame
-  import sys
-  import pygame
-  import pygame.gfxdraw
-  import time
+  # Small test (with pygame)
   
-  # Small tree
+  # Build a tree
   T = Tree("a1");
 
   b = T.addChild("b2")
@@ -322,8 +336,19 @@ if __name__ == '__main__':
   
   # Calculate layout  
   T.walker(0.6)
+
+  # Print coordinates
+  print("Node:\t    x,\ty")
+  for node in T.nodes:
+    p = node.position(origin=(0,0),scalex=100,scaley=1)
+    print("%s:\t(%#4d,\t%d)" % (node.data, p[0], p[1]))
   
+
   # Draw the tree
+  import pygame
+  import pygame.gfxdraw
+  import sys
+  import time
   
   width,height = 800,400
   sizex,sizey = 130,60
@@ -361,10 +386,12 @@ if __name__ == '__main__':
   # Show everything
   pygame.display.flip() 
 
-  # Input handling
+  # Stop on q, Escape or "Close Window" button
   while True: 
-    for event in pygame.event.get(): 
-      if event.type == pygame.QUIT: 
-        sys.exit(0) 
-    time.sleep(0.05)
-    
+    for event in pygame.event.get():
+      if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and (event.unicode == '\x1b' or event.unicode == 'q')): 
+        pygame.display.quit()
+        pygame.quit()
+        sys.exit()
+    time.sleep(0.1)
+
