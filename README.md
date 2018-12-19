@@ -11,11 +11,11 @@ The layout is calculated by calling the method "walker(distance)".
 
 The distance property indicated the distance between nodes on the same level.
 If the tree is build up using the addChild/removeChild methods, the layout
-will be calculated in linear time. 
+will be calculated in linear time _O(n)_. 
 
 The algorithm is a python implemenation of this publication ["Improving 
 Walker's Algorithm to Run in Linear Time"](http://citeseer.ist.psu.edu/buchheim02improving.html) by Christoph Buchheim, Michael Jünger, Sebastian Leipert.
 
 Tested with Python 2.6, 2.7, 3.3, 3.4, 3.5 and 3.6
 
-The example code (`__main__`) requires pygame for the graphical interface.
+The example code ([example.py](https://github.com/cvzi/py_treedraw/blob/master/example.py)) requires [pygame](https://www.pygame.org/wiki/GettingStarted) for the graphical interface.
