@@ -4,7 +4,7 @@ treedraw.py
 
 https://github.com/cvzi/py_treedraw
 
-Tested with Python 2.6 and 3.4
+Tested with Python 2.6, 3.4, 3.5, 3.6
 
 This module implements a layout algorithm for a tree.
 Each node in the tree has a layout property that contains an x and y
@@ -138,7 +138,8 @@ class Tree:
                 last = w
             return None
 
-    def _moveSubtree(self, w_m, w_p, shift):
+    @staticmethod
+    def _moveSubtree(w_m, w_p, shift):
         subtrees = w_p.number() - w_m.number()
         w_p.layout.change = w_p.layout.change - shift / subtrees
         w_p.layout.shift = w_p.layout.shift + shift
