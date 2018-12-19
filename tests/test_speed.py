@@ -71,7 +71,7 @@ def test_linear():
         print("n=%d nodes:" % n)
         t = timeit.timeit('test_speed._run_speed(%d)' % i, setup='import test_speed; test_speed._setup(%d)' % i, number=NUMBER)
         times[n] = t
-        print("{:25.20f}".format(t))
+        print("{0:25.20f}".format(t))
 
     x = list(times.keys())
     y = list(times.values())
