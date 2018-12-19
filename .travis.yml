@@ -1,0 +1,26 @@
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7-dev"  # 3.7 development branch
+  - "pypy3.5"
+# command to install dependencies
+install:
+  - pip install -r tests/requirements.txt
+  - pip install python-coveralls
+  - pip install coverage
+  - pip install nose
+#  - pip install codacy-coverage
+#  - pip install codecov
+# command to run tests
+script:
+  - pytest
+  - nosetests
+  - coverage run -a tests/test_quality.py
+after_success:
+  - coveralls
+#  - coverage xml
+#  - python-codacy-coverage -r coverage.xml
+#  - codecov
