@@ -19,3 +19,7 @@ Walker's Algorithm to Run in Linear Time"](http://citeseer.ist.psu.edu/buchheim0
 Tested with Python 2.6, 2.7, 3.3, 3.4, 3.5 and 3.6
 
 The example code ([example.py](https://github.com/cvzi/py_treedraw/blob/master/example.py)) requires [pygame](https://www.pygame.org/wiki/GettingStarted) for the graphical interface.
+
+[![Build Status](https://travis-ci.org/cvzi/py_treedraw.svg?branch=master)](https://travis-ci.org/cvzi/py_treedraw)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5324af341edb4e17b7ef69c78b3078ed)](https://www.codacy.com/app/cuzi/py_treedraw?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cvzi/py_treedraw&amp;utm_campaign=Badge_Grade)
+[![Coverage Status](https://coveralls.io/repos/github/cvzi/py_treedraw/badge.svg?branch=master)](https://coveralls.io/github/cvzi/py_treedraw?branch=master)
