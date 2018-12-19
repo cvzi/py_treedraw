@@ -12,15 +12,12 @@ install:
   - pip install python-coveralls
   - pip install coverage
   - pip install nose
-#  - pip install codacy-coverage
-#  - pip install codecov
+  - pip install codacy-coverage
 # command to run tests
 script:
-  - pytest
   - nosetests
   - coverage run -a tests/test_quality.py
 after_success:
   - coveralls
-#  - coverage xml
-#  - python-codacy-coverage -r coverage.xml
-#  - codecov
+  - coverage xml
+  - python-codacy-coverage -r coverage.xml
