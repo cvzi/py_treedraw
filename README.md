@@ -16,6 +16,6 @@ will be calculated in linear time.
 The algorithm is a python implemenation of this publication ["Improving 
 Walker's Algorithm to Run in Linear Time"](http://citeseer.ist.psu.edu/buchheim02improving.html) by Christoph Buchheim, Michael Jünger, Sebastian Leipert.
 
-Tested with Python 2.6, 3.4, 3.5 and 3.6
+Tested with Python 2.6, 2.7, 3.3, 3.4, 3.5 and 3.6
 
 The example code (`__main__`) requires pygame for the graphical interface.
