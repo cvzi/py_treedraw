@@ -14,7 +14,7 @@ except ImportError:
     from treedraw import Tree
 
 PY2 = sys.version_info.major is 2
-NUMBER = 5 if PY2 else 30
+NUMBER = 3 if PY2 else 30
 N = [10, 100, 200, 300, 500, 1000, 2000, 3000, 4000, 5000]
     # Build random trees:
 T = []
